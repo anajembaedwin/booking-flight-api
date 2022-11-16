@@ -8,9 +8,13 @@ const app = express();
 
 app.use(json());
 
-app.use("/", routes);
+app.use("/routes", routes);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000; //port to connect
+
+app.get("/", (req, res) => {
+  res.send("Zuri Training");
+})
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
